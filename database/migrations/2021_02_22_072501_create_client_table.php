@@ -16,13 +16,10 @@ class CreateClientTable extends Migration
         Schema::create('client', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('city_id')->unsigned()->index();
+            $table->string('city');
             $table->timestamps();
         });
         
-        Schema::table('client', function($table) {
-            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
-        });
     }
 
     /**

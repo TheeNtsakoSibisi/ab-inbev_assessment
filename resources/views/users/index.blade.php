@@ -203,7 +203,7 @@
               <div class="collapse show" id="laravelExamples">
                 <ul class="nav">
                   <li >
-                    <a href="{{ route('user.index') }}">
+                    <a href="/cities/create">
                       <i class="now-ui-icons users_single-02"></i>
                       <p> {{ __("Clients") }} </p>
                     </a>

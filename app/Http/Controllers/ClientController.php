@@ -12,11 +12,11 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Client $model)
     {
         //
-        $clients = Client::all();
-        return view('client.index',compact('client',$clients));
+        $clients = Client::orderBy('name')->paginate(15);
+        return view('client.index', ['client' => $model->paginate(15)])->with('client', $clients);
     }
 
     /**
@@ -41,10 +41,10 @@ class ClientController extends Controller
         //Validate
         $request->validate([
             'name' => 'required|min:3',
-            'city_id' => 'required',
+            'city' => 'required',
         ]);
         
-        $clients = Task::create(['name' => $request->name,'city_id' => $request->city]);
+        $client = Task::create(['name' => $request->name,'city' => $request->city]);
         return redirect('/client/'.$client->id);
     }
 
@@ -82,11 +82,11 @@ class ClientController extends Controller
         //Validate
         $request->validate([
             'name' => 'required|min:3',
-            'city_id' => 'required',
+            'city' => 'required',
         ]);
         
         $client->name = $request->name;
-        $client->city_id = $request->city_id;
+        $client->city = $request->city;
         $client->save();
         $request->session()->flash('message', 'Successfully modified the Client!');
         return redirect('client');

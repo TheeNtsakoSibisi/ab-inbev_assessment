@@ -16,7 +16,8 @@
           <div class="card-header">
             <h5 class="title">{{__(" Add New Client")}}</h5>
           </div>
-     <form action="CitiesController@store" method="GET">
+     <form action="CitiesController@store" method="PUT">
+     <!--<input type="hidden" name="_method" value="PUT">-->
      {{ csrf_field() }}
       <div class="form-group">
         <label for="title">Client name</label>
