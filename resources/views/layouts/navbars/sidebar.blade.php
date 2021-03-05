@@ -54,7 +54,7 @@
         <div class="collapse show" id="laravelExamples">
           <ul class="nav">
             <li class="@if ($activePage == 'client') active @endif">
-              <a href="/cities/create">
+              <a href="/client/create">
                 <i class="now-ui-icons users_single-02"></i>
                 <p> {{ __("Clients") }} </p>
               </a>

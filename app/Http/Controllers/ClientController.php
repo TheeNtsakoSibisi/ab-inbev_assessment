@@ -16,7 +16,7 @@ class ClientController extends Controller
     {
         //
         $clients = Client::orderBy('name')->paginate(15);
-        return view('client.index', ['client' => $model->paginate(15)])->with('client', $clients);
+        return view('customer.index', ['client' => $model->paginate(15)])->with('client', $clients);
     }
 
     /**
@@ -27,7 +27,7 @@ class ClientController extends Controller
     public function create()
     {
         //
-        return view('client.create');
+        return view('customer.create');
     }
 
     /**
@@ -56,7 +56,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-         return view('client.show',compact('client',$client));
+         return view('customer.show',compact('client',$client));
     }
 
     /**
@@ -67,7 +67,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        return view('client.edit',compact('client',$client));
+        return view('customer.edit',compact('client',$client));
     }
 
     /**
@@ -89,7 +89,7 @@ class ClientController extends Controller
         $client->city = $request->city;
         $client->save();
         $request->session()->flash('message', 'Successfully modified the Client!');
-        return redirect('client');
+        return redirect('customer');
     }
 
     /**

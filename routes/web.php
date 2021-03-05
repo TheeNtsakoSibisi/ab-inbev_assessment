@@ -25,7 +25,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::resource('cities', 'CitiesController');
+Route::resource('client', 'ClientController');
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
