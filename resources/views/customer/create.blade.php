@@ -16,12 +16,12 @@
           <div class="card-header">
             <h5 class="title">{{__(" Add New Client")}}</h5>
           </div>
-     <form action="CitiesController@store" method="PUT">
+     <form action="ClientController@store" method="PUT">
      <!--<input type="hidden" name="_method" value="PUT">-->
      {{ csrf_field() }}
       <div class="form-group">
         <label for="title">Client name</label>
-        <input type="text" class="form-control" id="cityName"  name="name">
+        <input type="text" class="form-control" id="clientName"  name="name">
       </div>
       <div class="form-group">
         <label for="description">Client City</label>

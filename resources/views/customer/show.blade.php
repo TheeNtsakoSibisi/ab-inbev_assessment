@@ -38,19 +38,19 @@
                   <th class="disabled-sorting text-right">Actions</th>
                 </tr>
               </tfoot>-->
-              @if(count($clients) > 1)
-              @foreach($clients as $client)
+              @if(count($client) > 1)
+              @foreach($client as $clients)
               <tbody>
                 <tr>
                     
                       
-                        <td>{{$client->name}}</td>
-                        <td>{{$client->city}}</td>
+                        <td>{{$clients->name}}</td>
+                        <td>{{$clients->city}}</td>
                         <td class="text-right">
                           <a type="button" href="{{ route('profile.edit') }}" rel="tooltip" class="btn btn-warning btn-icon btn-sm " data-original-title="" title="">
                           <i class="now-ui-icons ui-2_settings-90"></i>
                           </a>
-                          <form action="{{url('UserController@destroy', [$client->id])}}" method="POST" class="pull-right">
+                          <form action="{{url('UserController@destroy', [$clients->id])}}" method="POST" class="pull-right">
                           <input type="hidden" name="_method" value="PUT">
                           <button class="btn btn-danger btn-icon btn-sm now-ui-icons ui-1_simple-remove"></button>
                           </form>

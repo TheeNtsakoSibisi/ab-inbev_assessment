@@ -1,6 +1,20 @@
-@extends('layout.layout')
+@extends('layouts.app', [
+    'class' => 'sidebar-mini ',
+    'namePage' => 'Client Profile',
+    'activePage' => 'client',
+    'activeNav' => '',
+])
 
 @section('content')
+<div class="panel-header panel-header-sm">
+    </div>
+    <div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="title">{{__(" Client Details")}}</h5>
+          </div>
         @if (Session::has('message'))
             <div class="alert alert-info">{{ Session::get('message') }}</div>
         @endif
@@ -18,12 +32,12 @@
             @foreach($client ?? '' as $client ?? '')
             <tr>
               <th scope="row">{{$client ?? ''->id}}</th>
-              <td><a href="/cities/{{$client ?? ''->id}}">{{$client ?? ''->name}}</a></td>
-              <td>{{$client ?? ''->city_id}}</td>
+              <td><a href="/client/{{$client ?? ''->id}}">{{$client ?? ''->name}}</a></td>
+              <td>{{$client ?? ''->city}}</td>
               <td>{{$client ?? ''->created_at->toFormattedDateString()}}</td>
               <td>
               <div class="btn-group" role="group" aria-label="Basic example">
-                  <a href="{{ URL::to('cities/' . $client ?? ''->id . '/edit') }}">
+                  <a href="{{ URL::to('client/' . $client ?? ''->id . '/edit') }}">
                     <button type="button" class="btn btn-warning">Edit</button>
                   </a>&nbsp;
                   <form action="{{url('client', [$client ?? ''->id])}}" method="POST">
@@ -37,4 +51,8 @@
             @endforeach
           </tbody>
         </table>
+        </div>
+        </div>
+        </div>
+        </div>
 @endsection

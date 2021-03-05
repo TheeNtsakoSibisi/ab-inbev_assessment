@@ -16,9 +16,7 @@ class ClientsTableSeeder extends Seeder
     {
         DB::table('client')->insert([
             'name' => 'John',
-            'email' => 'john@info.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('secret'),
+            'city' => 'Johannesburg',
             'created_at' => now(),
             'updated_at' => now()
         ]);

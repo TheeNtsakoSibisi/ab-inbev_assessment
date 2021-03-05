@@ -44,7 +44,7 @@ class ClientController extends Controller
             'city' => 'required',
         ]);
         
-        $client = Task::create(['name' => $request->name,'city' => $request->city]);
+        $client = Client::create(['name' => $request->name,'city' => $request->city]);
         return redirect('/client/'.$client->id);
     }
 
